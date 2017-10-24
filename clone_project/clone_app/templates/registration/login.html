@@ -1,0 +1,18 @@
+{% extends 'clone_app/base.html'%}
+
+{% block body_block %}
+<div class="jumbotron">
+
+<h2>please log in </h2>
+<h3> (must be a super suer), please check with the usite admin</h3>
+{%  if form.errors%}
+<p> your user name and password didint match</p>
+{%  endif%}
+<form class="" action="{% url 'login' %}" method="POST">
+{%  csrf_token %}
+{{ form.as_p }}
+<input type="submit" class=" btn btn-primary" value="login">
+<input type="hidden " name="next" value="{{next}}">
+</form>
+</div>
+{% endblock %}
